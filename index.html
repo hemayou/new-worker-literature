@@ -1,21 +1,43 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>新工人文学与新就业群体 · 书目（16 种）</title>
 <meta name="description" content="适居行动课题专题书目：16 种新工人文学与新就业群体当事人自述与一线纪实研究，含简介、研读价值、全文下载与配套播客。">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='6' fill='%23b5402e'/%3E%3Ctext x='32' y='44' font-size='36' text-anchor='middle' fill='%23fbf6ee' font-family='serif' font-weight='bold'%3E书%3C/text%3E%3C/svg%3E">
+<script>
+/* 首屏前设定主题，避免闪烁 */
+(function(){var t=null;try{t=localStorage.getItem('nwl-theme')}catch(e){}
+if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light'}
+document.documentElement.setAttribute('data-theme',t)})();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&display=swap" rel="stylesheet">
 <style>
   :root{
+    color-scheme:light;
     --paper:#f6f1e7; --paper-deep:#efe8da; --ink:#26211c; --ink-soft:#4c453c;
     --ink-faint:#8a8072; --vermilion:#b5402e; --vermilion-deep:#96321f;
     --line:#ddd2bf; --card:#fbf8f1;
+    --score-bg:#fdf3f0; --score-line:#e5c5bc;
+    --award-bg:#f8f1e0; --award-line:#d9c27a; --award-ink:#8a6a1d;
+    --why-bg:#f9f4ea; --pod-line:#c9bda6;
+    --shadow:0 1px 0 rgba(60,50,30,.04), 0 12px 32px -24px rgba(60,50,30,.25);
   }
-  *{margin:0;padding:0;box-sizing:border-box}
+  [data-theme="dark"]{
+    color-scheme:dark;
+    --paper:#1b1815; --paper-deep:#292420; --ink:#ece4d6; --ink-soft:#c8bfb0;
+    --ink-faint:#938878; --vermilion:#d9634b; --vermilion-deep:#e8836d;
+    --line:#3a332b; --card:#252019;
+    --score-bg:#3d2722; --score-line:#6b3a2f;
+    --award-bg:#3a3116; --award-line:#6e5c22; --award-ink:#d9b85c;
+    --why-bg:#2a231b; --pod-line:#4a4136;
+    --shadow:0 1px 0 rgba(0,0,0,.3), 0 12px 32px -24px rgba(0,0,0,.65);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;
+    transition:background-color .35s ease,border-color .35s ease,color .35s ease}
   html{scroll-behavior:smooth}
   body{
     background:var(--paper); color:var(--ink);
@@ -23,6 +45,20 @@
     line-height:1.9; -webkit-font-smoothing:antialiased;
   }
   .wrap{max-width:860px;margin:0 auto;padding:0 28px}
+
+  /* ── 主题开关 ── */
+  #theme-toggle{
+    position:fixed; top:22px; right:26px; z-index:60;
+    width:42px; height:42px; border-radius:50%;
+    background:var(--card); border:1px solid var(--line); color:var(--ink-soft);
+    display:flex; align-items:center; justify-content:center; cursor:pointer;
+    box-shadow:var(--shadow);
+  }
+  #theme-toggle:hover{color:var(--vermilion); border-color:var(--vermilion)}
+  #theme-toggle svg{width:19px; height:19px}
+  #theme-toggle .sun{display:none}
+  [data-theme="dark"] #theme-toggle .sun{display:block}
+  [data-theme="dark"] #theme-toggle .moon{display:none}
 
   /* ── Hero ── */
   header.hero{
@@ -48,6 +84,34 @@
   .stat b{display:block; font-size:30px; font-weight:900; color:var(--vermilion); letter-spacing:.02em}
   .stat span{font-size:13px; color:var(--ink-faint); letter-spacing:.2em}
   .hero-note{margin-top:44px; color:var(--ink-faint); font-size:13.5px; letter-spacing:.06em}
+
+  /* ── 封面拼贴 ── */
+  .collage{
+    margin:52px calc(50% - 50vw) 0; padding:34px 0 40px;
+    overflow:hidden; position:relative;
+    -webkit-mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent);
+    mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent);
+  }
+  .collage::before,.collage::after{
+    content:""; position:absolute; left:0; right:0; height:56px; z-index:2; pointer-events:none;
+  }
+  .collage::before{top:0; background:linear-gradient(to bottom,var(--paper),rgba(0,0,0,0))}
+  .collage::after{bottom:0; background:linear-gradient(to top,var(--paper),rgba(0,0,0,0))}
+  .crow{display:flex; gap:clamp(10px,1.6vw,20px); width:max-content; margin:0 auto}
+  .crow + .crow{margin-top:clamp(12px,1.8vw,22px)}
+  .crow.r2{transform:translateX(clamp(24px,4vw,56px))}
+  .crow img{
+    width:clamp(78px,10vw,126px); border-radius:3px; display:block;
+    box-shadow:0 12px 26px -10px rgba(60,50,30,.5);
+    filter:saturate(.92); transition:transform .35s ease,filter .35s ease,box-shadow .35s ease;
+  }
+  .crow.r1 img:nth-child(odd){transform:rotate(-2.4deg) translateY(5px)}
+  .crow.r1 img:nth-child(even){transform:rotate(1.7deg)}
+  .crow.r2 img:nth-child(odd){transform:rotate(2deg)}
+  .crow.r2 img:nth-child(even){transform:rotate(-2.2deg) translateY(-5px)}
+  .crow img:hover{transform:rotate(0) scale(1.08) translateY(-4px); filter:none; z-index:3; position:relative}
+  [data-theme="dark"] .crow img{filter:brightness(.78) saturate(.85); box-shadow:0 12px 28px -10px rgba(0,0,0,.75)}
+  [data-theme="dark"] .crow img:hover{filter:brightness(.95)}
 
   /* ── 引言 ── */
   .intro{padding:56px 0 8px}
@@ -75,7 +139,7 @@
   article.book{
     background:var(--card); border:1px solid var(--line); border-radius:4px;
     padding:40px 44px 36px; margin-bottom:40px; position:relative;
-    box-shadow:0 1px 0 rgba(60,50,30,.04), 0 12px 32px -24px rgba(60,50,30,.25);
+    box-shadow:var(--shadow);
   }
   .book .ordinal{
     position:absolute; top:-1px; right:36px; background:var(--vermilion); color:#fbf6ee;
@@ -89,9 +153,9 @@
     font-size:12.5px; color:var(--ink-soft); background:var(--paper-deep);
     border:1px solid var(--line); padding:3px 12px; border-radius:999px; letter-spacing:.05em;
   }
-  .chip.score{background:#fdf3f0; border-color:#e5c5bc; color:var(--vermilion-deep); font-weight:600}
+  .chip.score{background:var(--score-bg); border-color:var(--score-line); color:var(--vermilion-deep); font-weight:600}
   .chip.todo{background:transparent; border-style:dashed; color:var(--ink-faint)}
-  .chip.award{background:#f8f1e0; border-color:#d9c27a; color:#8a6a1d; font-weight:600}
+  .chip.award{background:var(--award-bg); border-color:var(--award-line); color:var(--award-ink); font-weight:600}
   .book h4{
     font-size:13px; letter-spacing:.32em; color:var(--vermilion); font-weight:600; margin:20px 0 10px;
   }
@@ -99,7 +163,7 @@
   .book p{font-size:15.5px; color:var(--ink-soft); text-align:justify; margin-bottom:.9em}
   .book p q{quotes:"「" "」"}
   .why{
-    margin-top:22px; background:#f9f4ea; border-left:3px solid var(--vermilion);
+    margin-top:22px; background:var(--why-bg); border-left:3px solid var(--vermilion);
     padding:18px 22px 14px; border-radius:0 3px 3px 0;
   }
   .why h4{margin-top:0}
@@ -116,7 +180,7 @@
     content:""; position:absolute; left:0; top:.78em; width:7px; height:7px;
     background:var(--vermilion); border-radius:50%; opacity:.75;
   }
-  .pods a{color:var(--ink-soft); text-decoration:none; border-bottom:1px dotted #c9bda6; transition:color .2s,border-color .2s}
+  .pods a{color:var(--ink-soft); text-decoration:none; border-bottom:1px dotted var(--pod-line); transition:color .2s,border-color .2s}
   .pods a:hover{color:var(--vermilion); border-color:var(--vermilion)}
   .pods .src{color:var(--ink-faint); font-size:12.5px; margin-left:8px; white-space:nowrap}
 
@@ -128,9 +192,9 @@
   .book .dllink{
     display:inline-block; margin-top:16px; margin-left:14px; font-size:13px;
     color:var(--vermilion-deep); text-decoration:none; letter-spacing:.05em;
-    border:1px solid #e0c0b8; padding:4px 14px; border-radius:999px; transition:background .2s;
+    border:1px solid var(--score-line); padding:4px 14px; border-radius:999px; transition:background .2s;
   }
-  .book .dllink:hover{background:#fdf3f0}
+  .book .dllink:hover{background:var(--score-bg)}
   @media(max-width:640px){
     article.book{padding:32px 24px 28px}
     .book .ordinal{right:20px}
@@ -139,6 +203,7 @@
     .stat b{font-size:24px}
     .book .dllink{margin-left:0; display:block; width:max-content}
     .pods .src{white-space:normal}
+    #theme-toggle{top:14px; right:14px; width:38px; height:38px}
   }
 
   /* ── 附注 / 页脚 ── */
@@ -146,21 +211,48 @@
   footer h2{font-size:14px; letter-spacing:.3em; color:var(--ink-faint); margin-bottom:16px}
   footer li{font-size:13.5px; color:var(--ink-faint); margin-left:1.2em; margin-bottom:6px}
   footer .colophon{margin-top:32px; font-size:13px; color:var(--ink-faint); letter-spacing:.08em}
-  footer .colophon a{color:var(--vermilion); text-decoration:none; border-bottom:1px solid #e0c0b8}
+  footer .colophon a{color:var(--vermilion); text-decoration:none; border-bottom:1px solid var(--score-line)}
 </style>
 </head>
 <body>
+
+<button id="theme-toggle" aria-label="切换深色/浅色模式" title="切换深色/浅色模式">
+  <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.9" y1="4.9" x2="6.3" y2="6.3"/><line x1="17.7" y1="17.7" x2="19.1" y2="19.1"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.9" y1="19.1" x2="6.3" y2="17.7"/><line x1="17.7" y1="6.3" x2="19.1" y2="4.9"/></svg>
+</button>
 
 <header class="hero">
   <div class="wrap">
     <span class="kicker">适居行动课题 · 专题书目</span>
     <h1 class="title">新工人文学与新就业群体</h1>
     <p class="subtitle">十六种书 · 替沉默的新就业群体发声</p>
+    <div class="collage">
+      <div class="crow r1">
+        <img src="covers/b01.jpg" alt="《我在北京送快递》封面">
+        <img src="covers/b02.jpg" alt="《劳动者的星辰》封面">
+        <img src="covers/b03.jpg" alt="《我的皮村兄妹》封面">
+        <img src="covers/b04.jpg" alt="《跑外卖：一个女骑手的世界》封面">
+        <img src="covers/b05.jpg" alt="《无尘车间》封面">
+        <img src="covers/b06.jpg" alt="《我的母亲做保洁》封面">
+        <img src="covers/b07.jpg" alt="《生死课》封面">
+        <img src="covers/b08.jpg" alt="《我在上海开出租》封面">
+      </div>
+      <div class="crow r2">
+        <img src="covers/b09.jpg" alt="《岂不怀归：三和青年调查》封面">
+        <img src="covers/b10.jpg" alt="《中国新工人：女工传记》封面">
+        <img src="covers/b11.jpg" alt="《过渡劳动：平台经济下的外卖骑手》封面">
+        <img src="covers/b12.jpg" alt="《废品生活》封面">
+        <img src="covers/b13.jpg" alt="《寂静的孩子》封面">
+        <img src="covers/b14.jpg" alt="《我在北京做家政》封面">
+        <img src="covers/b15.jpg" alt="《低处飞行》封面">
+        <img src="covers/b16.jpg" alt="《温榆河上的西西弗斯》封面">
+      </div>
+    </div>
     <div class="stats">
       <div class="stat"><b>16</b><span>种图书</span></div>
       <div class="stat"><b>180万</b><span>实测字数(13种)</span></div>
       <div class="stat"><b>2016–26</b><span>出版跨度</span></div>
-      <div class="stat"><b>27</b><span>集配套播客</span></div>
+      <div class="stat"><b>28</b><span>集配套播客</span></div>
     </div>
     <p class="hero-note">13 种全文已入库可检索 · Markdown 全文随仓库发布 · 书目信息经逐书网络核查（数据时点 2026-07）</p>
   </div>
@@ -309,6 +401,7 @@
         <ul>
           <li><a href="https://www.xiaoyuzhoufm.com/episode/690b0edcb0bdc24d1d2c4c79" target="_blank" rel="noopener">Vol.112 一个女外卖骑手，决定拥有自己的叙事（吴琦对谈王晚）</a><span class="src">螺丝在拧紧 · 2025</span></li>
           <li><a href="https://www.xiaoyuzhoufm.com/episode/6948bb460f2ae6a86773f52c" target="_blank" rel="noopener">王晚：跑外卖，一个女骑手要面对怎样的世界（192 分钟深谈）</a><span class="src">多多指教 · 2025</span></li>
+          <li><a href="https://www.xiaoyuzhoufm.com/episode/69241f8e17fe964592f664a5" target="_blank" rel="noopener">E134 跑外卖：在加速的时间里，在算法和现实夹缝中逆行（访谈王晚）</a><span class="src">面基 · 2025</span></li>
           <li><a href="https://www.xiaoyuzhoufm.com/episode/69845cebc78b823892cfd7e8" target="_blank" rel="noopener">vol.141 经济学家姚洋对话外卖骑手王晚</a><span class="src">知本论 · 2026</span></li>
         </ul>
       </div>
@@ -625,5 +718,17 @@
   </footer>
 
 </div>
+
+<script>
+(function(){
+  var btn=document.getElementById('theme-toggle');
+  btn.addEventListener('click',function(){
+    var r=document.documentElement;
+    var n=r.getAttribute('data-theme')==='dark'?'light':'dark';
+    r.setAttribute('data-theme',n);
+    try{localStorage.setItem('nwl-theme',n)}catch(e){}
+  });
+})();
+</script>
 </body>
 </html>
