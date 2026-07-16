@@ -102,6 +102,22 @@
   }
   .why h4{margin-top:0}
   .why p{font-size:15px}
+
+  /* ── 播客 ── */
+  .pods{margin-top:22px}
+  .pods h4{margin-bottom:12px}
+  .pods ul{list-style:none}
+  .pods li{
+    font-size:14px; color:var(--ink-soft); margin-bottom:7px; padding-left:18px; position:relative;
+  }
+  .pods li::before{
+    content:""; position:absolute; left:0; top:.78em; width:7px; height:7px;
+    background:var(--vermilion); border-radius:50%; opacity:.75;
+  }
+  .pods a{color:var(--ink-soft); text-decoration:none; border-bottom:1px dotted #c9bda6; transition:color .2s,border-color .2s}
+  .pods a:hover{color:var(--vermilion); border-color:var(--vermilion)}
+  .pods .src{color:var(--ink-faint); font-size:12.5px; margin-left:8px; white-space:nowrap}
+
   .book .dblink{
     display:inline-block; margin-top:16px; font-size:13px; color:var(--ink-faint);
     text-decoration:none; border-bottom:1px solid var(--line); transition:color .2s;
@@ -120,6 +136,7 @@
     .stat{padding:6px 20px}
     .stat b{font-size:24px}
     .book .dllink{margin-left:0; display:block; width:max-content}
+    .pods .src{white-space:normal}
   }
 
   /* ── 附注 / 页脚 ── */
@@ -141,7 +158,7 @@
       <div class="stat"><b>12</b><span>种图书</span></div>
       <div class="stat"><b>159万</b><span>实测字数</span></div>
       <div class="stat"><b>2016–25</b><span>出版跨度</span></div>
-      <div class="stat"><b>2辑</b><span>自述 · 研究</span></div>
+      <div class="stat"><b>27</b><span>集配套播客</span></div>
     </div>
     <p class="hero-note">全部图书已入库全文可检索 · Markdown 全文随仓库发布 · 书目信息经逐书网络核查（数据时点 2026-07）</p>
   </div>
@@ -152,7 +169,7 @@
   <section class="intro">
     <p>这是一份为「适居行动」住房研究与新就业群体研究编选的书目。十二本书，无一例外出自现场：它们或是快递员、女骑手、保洁员、出租车司机、皮村工友<em>亲笔写下的自述</em>，或是作家、学者长期潜入东莞工厂、深圳三和、北京城乡接合部带回的<em>一线纪实与民族志</em>。</p>
     <p>上辑八种为当事人自述与纪实文学，下辑四种为调查与研究。前者提供逐字的生活质感，后者提供概念与方法——两者互证，共同回答一个问题：在廉价而动荡的居住条件下，新就业群体如何谋生、如何栖居、如何维系尊严。</p>
-    <p>十二本书的 Markdown 全文（含图片）已随仓库公开发布，<em>每本书卡片的末尾均可直接下载</em>，便于离线研读与全文检索。</p>
+    <p>十二本书的 Markdown 全文（含图片）已随仓库公开发布，每本书卡片的末尾均可直接下载；大部分书还配上了<em>小宇宙播客</em>的相关单集——作者访谈与读书专题，可在读前读后对照收听。</p>
   </section>
 
   <nav class="toc">
@@ -197,6 +214,14 @@
         <h4>为什么值得读 · 对研究的意义</h4>
         <p>这是新就业群体「当事人写作」的标杆文本，也是近年现象级的劳动者非虚构。对住房与新就业群体研究而言，它的价值在于提供了大量第一人称的日常细节：快递员住在哪里、租金占收入几成、通勤半径如何被分拣站点和派送片区锚定、夜班劳动如何反过来压缩居住选择。胡安焉写劳动对身体的损耗与对尊严的守护都极克制诚实，是把「新就业群体」从统计数字还原为具体生活世界的最佳入口。</p>
       </div>
+      <div class="pods">
+        <h4>相关播客 · 小宇宙</h4>
+        <ul>
+          <li><a href="https://www.xiaoyuzhoufm.com/episode/65b82e39e9ce963e4c6a4502" target="_blank" rel="noopener">Vol.215 我在北京送快递：能不能比世界晚熟两年</a><span class="src">文化有限 · 2024</span></li>
+          <li><a href="https://www.xiaoyuzhoufm.com/episode/6473edd356dfdc8c191c0431" target="_blank" rel="noopener">当打工者成为写作者，自由能实现了吗？（专访胡安焉）</a><span class="src">天真与经验 · 2023</span></li>
+          <li><a href="https://www.xiaoyuzhoufm.com/episode/6495492e932f350aaee2126c" target="_blank" rel="noopener">一个快递员的自白，底层打工人20年的19份工作（作者×策划编辑对谈）</a><span class="src">深焦DeepFocus · 2023</span></li>
+        </ul>
+      </div>
       <a class="dblink" href="https://book.douban.com/subject/36150423/" target="_blank" rel="noopener">豆瓣条目 ↗</a>
       <a class="dllink" href="https://github.com/hemayou/new-worker-literature/raw/main/全文/我在北京送快递（胡安焉）.md" target="_blank" rel="noopener">↓ 下载 Markdown 全文</a>
     </article>
@@ -216,6 +241,14 @@
       <div class="why">
         <h4>为什么值得读 · 对研究的意义</h4>
         <p>这是「替沉默者发声」的首选文本：不是作家代言，而是居住者、劳动者本人的逐字书写。工棚、合租房、城中村这些居住形态，在这里不是被调研的客体，而是写作者每天身处其中的家。对住房研究而言，它提供了难得的「居住者主体性」证据——工人如何布置、如何使用、如何情感投注于临时居所；多工种合集的结构也便于横向比较不同行业务工者的居住—生计组合。</p>
+      </div>
+      <div class="pods">
+        <h4>相关播客 · 小宇宙</h4>
+        <ul>
+          <li><a href="https://www.xiaoyuzhoufm.com/episode/6093cb7e4b1c3b8d0f2674bf" target="_blank" rel="noopener">vol.17 范雨素：大家都是机器人儿（专访范雨素）</a><span class="src">打工谈 · 2021</span></li>
+          <li><a href="https://www.xiaoyuzhoufm.com/episode/68908df28e06fe8de742d973" target="_blank" rel="noopener">Vol.79 黄灯 × 范雨素 × 杨沁：劳动者写作，不需要任何人的同情</a><span class="src">破产书店 · 2025</span></li>
+          <li><a href="https://www.xiaoyuzhoufm.com/episode/6941753cdac38001e4974665" target="_blank" rel="noopener">Vol.54 劳动者的诗与歌：皮村文学小组诗集读诗会（上）</a><span class="src">这里有诗 · 2025</span></li>
+        </ul>
       </div>
       <a class="dblink" href="https://book.douban.com/subject/36035851/" target="_blank" rel="noopener">豆瓣条目 ↗</a>
       <a class="dllink" href="https://github.com/hemayou/new-worker-literature/raw/main/全文/劳动者的星辰（皮村文学小组）.md" target="_blank" rel="noopener">↓ 下载 Markdown 全文</a>
@@ -237,6 +270,14 @@
         <h4>为什么值得读 · 对研究的意义</h4>
         <p>皮村是城中村居住生态最完整的当代样本：工友之家、同心实验学校、打工博物馆、文学小组构成了一套打工者自组织的社区基础设施，而皮村拆迁则是城中村治理与搬迁的一手记录。本书七年的时间纵深，让它同时成为一部「居住—谋生—精神生活」的民族志。对适居行动课题而言，它回答的正是核心问题：在廉价而动荡的居住条件下，人如何维系尊严与共同体。</p>
       </div>
+      <div class="pods">
+        <h4>相关播客 · 小宇宙</h4>
+        <ul>
+          <li><a href="https://www.xiaoyuzhoufm.com/episode/666c10c6b6a8412729c18d7d" target="_blank" rel="noopener">332 一座城中村和它的文学梦：与袁凌漫谈皮村故事</a><span class="src">忽左忽右 · 2024</span></li>
+          <li><a href="https://www.xiaoyuzhoufm.com/episode/66602617b9bead9fb0f353fe" target="_blank" rel="noopener">老记者讲故事：范雨素、小海以及皮村文学小组（与袁凌、小海走访皮村）</a><span class="src">跑题大会 · 2024</span></li>
+          <li><a href="https://www.xiaoyuzhoufm.com/podcast/65bf60cbc0faeef29a09bac5" target="_blank" rel="noopener">「读《我的皮村兄妹》」逐篇精读系列（11 期）</a><span class="src">王才的田野 · 2026</span></li>
+        </ul>
+      </div>
       <a class="dblink" href="https://book.douban.com/subject/36850975/" target="_blank" rel="noopener">豆瓣条目 ↗</a>
       <a class="dllink" href="https://github.com/hemayou/new-worker-literature/raw/main/全文/我的皮村兄妹（袁凌）.md" target="_blank" rel="noopener">↓ 下载 Markdown 全文</a>
     </article>
@@ -256,6 +297,14 @@
       <div class="why">
         <h4>为什么值得读 · 对研究的意义</h4>
         <p>骑手研究长期默认男性视角，本书是最新的女骑手自述，补足了性别维度：女性跑单的安全策略、体力与偏见、离异后的经济与居住处境。它与学术著作《过渡劳动》可形成「自述—研究」的交叉印证；同时她笔下「城中村既是要租住的家、也是要穿梭的跑单场」的双重空间经验，直接连接了居住与劳动两个研究议题。</p>
+      </div>
+      <div class="pods">
+        <h4>相关播客 · 小宇宙</h4>
+        <ul>
+          <li><a href="https://www.xiaoyuzhoufm.com/episode/690b0edcb0bdc24d1d2c4c79" target="_blank" rel="noopener">Vol.112 一个女外卖骑手，决定拥有自己的叙事（吴琦对谈王晚）</a><span class="src">螺丝在拧紧 · 2025</span></li>
+          <li><a href="https://www.xiaoyuzhoufm.com/episode/6948bb460f2ae6a86773f52c" target="_blank" rel="noopener">王晚：跑外卖，一个女骑手要面对怎样的世界（192 分钟深谈）</a><span class="src">多多指教 · 2025</span></li>
+          <li><a href="https://www.xiaoyuzhoufm.com/episode/69845cebc78b823892cfd7e8" target="_blank" rel="noopener">vol.141 经济学家姚洋对话外卖骑手王晚</a><span class="src">知本论 · 2026</span></li>
+        </ul>
       </div>
       <a class="dblink" href="https://book.douban.com/subject/37462151/" target="_blank" rel="noopener">豆瓣条目 ↗</a>
       <a class="dllink" href="https://github.com/hemayou/new-worker-literature/raw/main/全文/跑外卖-一个女骑手的世界（王晚）.md" target="_blank" rel="noopener">↓ 下载 Markdown 全文</a>
@@ -297,6 +346,14 @@
         <h4>为什么值得读 · 对研究的意义</h4>
         <p>超级城市的运转依赖一群隐形的维护者，本书让他们显形。对住房研究的独特价值在代际与家庭维度：老年女工进城后的居住安排（与子女合租、城中村）、通勤链与工作场所（写字楼—商场—住所）的空间关系、以及「照护—务工」双重负担如何塑造家庭住房选择。它把「新就业群体」从青壮年扩展到了被忽视的中老年女性务工者。</p>
       </div>
+      <div class="pods">
+        <h4>相关播客 · 小宇宙</h4>
+        <ul>
+          <li><a href="https://www.xiaoyuzhoufm.com/episode/658e99086396a4645a4f9440" target="_blank" rel="noopener">vol.029 无岸可上的时代，大厂女儿和保洁员妈妈的故事（专访张小满）</a><span class="src">有关紧要 · 2023</span></li>
+          <li><a href="https://www.xiaoyuzhoufm.com/episode/661a0f3e5643084014c214c0" target="_blank" rel="noopener">Vol.87 我的母亲做保洁：大厂打工女儿记录下深圳折叠（新书分享会对谈）</a><span class="src">近于正常 · 2024</span></li>
+          <li><a href="https://www.xiaoyuzhoufm.com/episode/65f4303867649570798b5921" target="_blank" rel="noopener">和《我的母亲做保洁》作者张小满聊聊歉疚感与主体性</a><span class="src">母女之间 · 2024</span></li>
+        </ul>
+      </div>
       <a class="dblink" href="https://book.douban.com/subject/36623046/" target="_blank" rel="noopener">豆瓣条目 ↗</a>
       <a class="dllink" href="https://github.com/hemayou/new-worker-literature/raw/main/全文/我的母亲做保洁（张小满）.md" target="_blank" rel="noopener">↓ 下载 Markdown 全文</a>
     </article>
@@ -317,6 +374,14 @@
         <h4>为什么值得读 · 对研究的意义</h4>
         <p>这本书记录的是边缘人群生命叙事的极限处境：事故、疾病、失踪、死亡——而每一种处境背后都有一个「最后的居所」。对住房研究而言，它提示居住从来不只是空间与租金问题，而是生死安顿问题；对质性研究而言，袁凌克制的白描与深切的同情是「如何书写他者而不消费他者」的范本，为居住者情绪、尊严与栖居感的访谈与写作提供方法论参照。</p>
       </div>
+      <div class="pods">
+        <h4>相关播客 · 小宇宙（作者访谈）</h4>
+        <ul>
+          <li><a href="https://www.xiaoyuzhoufm.com/episode/5fe26319dee9c1e16dd168c2" target="_blank" rel="noopener">39 非虚构写作：生活的面孔、小说的眼睛和天真的心｜袁凌 &amp; 金理（节目中重点推荐《生死课》）</a><span class="src">跳岛FM · 2020</span></li>
+          <li><a href="https://www.xiaoyuzhoufm.com/episode/5fd741fedee9c1e16d37f5ab" target="_blank" rel="noopener">118 三峡、烈火和世纪末的罂粟壳（袁凌谈社会新闻记者生涯）</a><span class="src">忽左忽右 · 2020</span></li>
+          <li><a href="https://www.xiaoyuzhoufm.com/episode/5e285327418a84a046273532" target="_blank" rel="noopener">袁凌：青苔不会消失（主题演讲，谈尘肺矿工与边缘人书写）</a><span class="src">一席 · 2017</span></li>
+        </ul>
+      </div>
       <a class="dblink" href="https://book.douban.com/subject/35192662/" target="_blank" rel="noopener">豆瓣条目 ↗</a>
       <a class="dllink" href="https://github.com/hemayou/new-worker-literature/raw/main/全文/生死课（袁凌）.md" target="_blank" rel="noopener">↓ 下载 Markdown 全文</a>
     </article>
@@ -336,6 +401,13 @@
       <div class="why">
         <h4>为什么值得读 · 对研究的意义</h4>
         <p>出租车/网约车司机是与骑手、快递员并列的新就业群体大类，但自述文本稀缺。本书补上了这一块：司机的收入结构与班制、车厢作为移动工作空间与「第二居所」的双重属性、以及他们在城市中的居住选择。与《我在北京送快递》并读，可以比较不同平台化/半平台化工种在劳动强度、自主性与居住条件上的差异——这正是新就业群体分类研究需要的对照组。</p>
+      </div>
+      <div class="pods">
+        <h4>相关播客 · 小宇宙</h4>
+        <ul>
+          <li><a href="https://www.xiaoyuzhoufm.com/episode/665c3dd963c334a2fbc70af1" target="_blank" rel="noopener">EP25《我在上海开出租》黑桃：一辆出租车里装下了整个上海的酒醒人生（与《我在北京送快递》对读）</a><span class="src">职业离想 · 2024</span></li>
+          <li><a href="https://www.xiaoyuzhoufm.com/episode/66568fd3790e136fcb639615" target="_blank" rel="noopener">#31 狠书解构《我在上海开出租》（整集解构，付费单集）</a><span class="src">锵锵100分钟了 · 2024</span></li>
+        </ul>
       </div>
       <a class="dblink" href="https://book.douban.com/subject/36759005/" target="_blank" rel="noopener">豆瓣条目 ↗</a>
       <a class="dllink" href="https://github.com/hemayou/new-worker-literature/raw/main/全文/我在上海开出租（黑桃）.md" target="_blank" rel="noopener">↓ 下载 Markdown 全文</a>
@@ -365,6 +437,14 @@
       <div class="why">
         <h4>为什么值得读 · 对研究的意义</h4>
         <p>这是与住房研究最直接对口的一本：日结工作、15 元床位、「挂逼房」、睡大街——三和是极端居住形态的完整标本，书中对廉价居住生态的供需逻辑（日租房、网吧、凉席、行李寄存）有系统描摹。它揭示了一个关键机制：当居住被压缩到按天计费的最小单元，人的时间观念、职业规划乃至身份认同都会被重塑。对城中村治理与适居政策而言，三和是「不可退到的底线」的参照系。</p>
+      </div>
+      <div class="pods">
+        <h4>相关播客 · 小宇宙</h4>
+        <ul>
+          <li><a href="https://www.xiaoyuzhoufm.com/episode/5f613ecf83c34e85ddfaaa04" target="_blank" rel="noopener">25 无法落脚的城市，不想回归的青年｜田丰 &amp; 张博（专访作者）</a><span class="src">跳岛FM · 2020</span></li>
+          <li><a href="https://www.xiaoyuzhoufm.com/episode/5ff0d807dee9c1e16df0ff38" target="_blank" rel="noopener">S01E00 三和青年：我们能够理解他们的困境吗？（读书会整集讨论）</a><span class="src">屋头坐 · 2021</span></li>
+          <li><a href="https://www.xiaoyuzhoufm.com/episode/620dfe7f5db8629b48f3c153" target="_blank" rel="noopener">#201 生育问题复杂，但还有更大隐忧（田丰受访，内设「三和青年」专段）</a><span class="src">声东击西 · 2022</span></li>
+        </ul>
       </div>
       <a class="dblink" href="https://book.douban.com/subject/35134022/" target="_blank" rel="noopener">豆瓣条目 ↗</a>
       <a class="dllink" href="https://github.com/hemayou/new-worker-literature/raw/main/全文/岂不怀归-三和青年调查（田丰、林凯玄）.md" target="_blank" rel="noopener">↓ 下载 Markdown 全文</a>
@@ -406,6 +486,14 @@
         <h4>为什么值得读 · 对研究的意义</h4>
         <p>这是本专题的学术主心骨。「过渡劳动」概念——劳动者以为只是「过渡一下」、却被结构性固化的状态——同样适用于分析居住：暂住、合租、搬迁的「过渡性居住」如何变成常态。书中大量骑手关于居住、租金、宿舍的自述可直接引用；其田野设计（多城市、多年份、跟跑单）是课题方法论范本；与王晚《跑外卖》并读，恰好构成「学术分析—当事人自述」的互证。</p>
       </div>
+      <div class="pods">
+        <h4>相关播客 · 小宇宙</h4>
+        <ul>
+          <li><a href="https://www.xiaoyuzhoufm.com/episode/66c6b88dc08d9acef271bb59" target="_blank" rel="noopener">143 以肉身投喂算法：外卖员与你我皆是「人体电池」（孙萍做客）</a><span class="src">随机波动 · 2024</span></li>
+          <li><a href="https://www.xiaoyuzhoufm.com/episode/674f1ca7d99bb3a64c5118ce" target="_blank" rel="noopener">78 对话《过渡劳动》孙萍：透过外卖骑手，看见算法游戏下的零工困境</a><span class="src">晨读时间 · 2024</span></li>
+          <li><a href="https://www.xiaoyuzhoufm.com/episode/6707ec13fb67b33b1ef2440b" target="_blank" rel="noopener">370. 三年又三年，原来我被过渡劳动硬控了（访谈孙萍）</a><span class="src">看理想圆桌 · 2024</span></li>
+        </ul>
+      </div>
       <a class="dblink" href="https://book.douban.com/subject/36985251/" target="_blank" rel="noopener">豆瓣条目 ↗</a>
       <a class="dllink" href="https://github.com/hemayou/new-worker-literature/raw/main/全文/过渡劳动-平台经济下的外卖骑手（孙萍）.md" target="_blank" rel="noopener">↓ 下载 Markdown 全文</a>
     </article>
@@ -435,10 +523,10 @@
     <h2>数据说明</h2>
     <ul>
       <li>12 本书的 Markdown 全文与图片资产收录于仓库 <b>全文/</b> 目录；Markdown 内图片为相对路径引用，下载后请与同名 .assets 目录放在一起，或直接在仓库中在线阅读。</li>
+      <li>播客链接均来自小宇宙（xiaoyuzhoufm.com），逐集抓取验证（2026-07）。《无尘车间》《中国新工人：女工传记》《废品生活》暂未检索到符合收录标准（作者访谈或本书专题）的单集。</li>
       <li>出版社、出版年月、页数、豆瓣评分经豆瓣、出版社官网、媒体报道逐书核查，时点 2026-07；豆瓣评分与人数会随时间变动。</li>
       <li>字数为课题书库本地全文入库后的实测字符数（去除标记与空白），与出版方标称字数可能存在口径差异。</li>
       <li>《生死课》豆瓣总分未取到；《无尘车间》页数未见公开著录（32 开三篇）。</li>
-      <li>本专题 12 种图书均已转全文 Markdown，可跨书检索并返回带出处逐字原文。</li>
     </ul>
     <p class="colophon">适居行动课题 · 生成于 2026-07 · <a href="https://github.com/hemayou/new-worker-literature" target="_blank" rel="noopener">GitHub 仓库 ↗</a></p>
   </footer>
