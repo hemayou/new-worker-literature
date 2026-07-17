@@ -14,12 +14,12 @@ document.documentElement.setAttribute('data-theme',t)})();
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;900&display=swap" rel="stylesheet">
 <style>
   :root{
     color-scheme:light;
-    --paper:#f6f1e7; --paper-deep:#efe8da; --ink:#26211c; --ink-soft:#4c453c;
-    --ink-faint:#8a8072; --vermilion:#b5402e; --vermilion-deep:#96321f;
+    --paper:#f6f1e7; --paper-deep:#efe8da; --ink:#1c1712; --ink-soft:#362f28;
+    --ink-faint:#6e6455; --vermilion:#b5402e; --vermilion-deep:#96321f;
     --line:#ddd2bf; --card:#fbf8f1;
     --score-bg:#fdf3f0; --score-line:#e5c5bc;
     --award-bg:#f8f1e0; --award-line:#d9c27a; --award-ink:#8a6a1d;
@@ -28,8 +28,8 @@ document.documentElement.setAttribute('data-theme',t)})();
   }
   [data-theme="dark"]{
     color-scheme:dark;
-    --paper:#1b1815; --paper-deep:#292420; --ink:#ece4d6; --ink-soft:#c8bfb0;
-    --ink-faint:#938878; --vermilion:#d9634b; --vermilion-deep:#e8836d;
+    --paper:#1b1815; --paper-deep:#292420; --ink:#f0e9dc; --ink-soft:#d2cabb;
+    --ink-faint:#a09584; --vermilion:#d9634b; --vermilion-deep:#e8836d;
     --line:#3a332b; --card:#252019;
     --score-bg:#3d2722; --score-line:#6b3a2f;
     --award-bg:#3a3116; --award-line:#6e5c22; --award-ink:#d9b85c;
@@ -115,7 +115,7 @@ document.documentElement.setAttribute('data-theme',t)})();
 
   /* ── 引言 ── */
   .intro{padding:56px 0 8px}
-  .intro p{color:var(--ink-soft); font-size:16px; text-align:justify; margin-bottom:1.2em}
+  .intro p{color:var(--ink-soft); font-size:16px; font-weight:500; text-align:justify; margin-bottom:1.2em}
   .intro p em{font-style:normal; color:var(--vermilion-deep); border-bottom:1px solid var(--vermilion)}
 
   /* ── 目录 ── */
@@ -133,7 +133,7 @@ document.documentElement.setAttribute('data-theme',t)})();
   .part-head{display:flex; align-items:baseline; gap:18px; margin-bottom:8px}
   .part-head .zh{font-size:26px; font-weight:900; letter-spacing:.14em}
   .part-head .en{font-size:12px; letter-spacing:.28em; color:var(--ink-faint); text-transform:uppercase}
-  .part-desc{color:var(--ink-faint); font-size:14.5px; margin-bottom:36px}
+  .part-desc{color:var(--ink-faint); font-size:14.5px; font-weight:500; margin-bottom:36px}
 
   /* ── 书卡 ── */
   article.book{
@@ -160,7 +160,7 @@ document.documentElement.setAttribute('data-theme',t)})();
     font-size:13px; letter-spacing:.32em; color:var(--vermilion); font-weight:600; margin:20px 0 10px;
   }
   .book h4::after{content:""; display:block; width:28px; height:2px; background:var(--vermilion); margin-top:8px; opacity:.6}
-  .book p{font-size:15.5px; color:var(--ink-soft); text-align:justify; margin-bottom:.9em}
+  .book p{font-size:15.5px; color:var(--ink-soft); font-weight:500; text-align:justify; margin-bottom:.9em}
   .book p q{quotes:"「" "」"}
   .why{
     margin-top:22px; background:var(--why-bg); border-left:3px solid var(--vermilion);
@@ -174,7 +174,7 @@ document.documentElement.setAttribute('data-theme',t)})();
   .pods h4{margin-bottom:12px}
   .pods ul{list-style:none}
   .pods li{
-    font-size:14px; color:var(--ink-soft); margin-bottom:7px; padding-left:18px; position:relative;
+    font-size:14px; color:var(--ink-soft); font-weight:500; margin-bottom:7px; padding-left:18px; position:relative;
   }
   .pods li::before{
     content:""; position:absolute; left:0; top:.78em; width:7px; height:7px;
@@ -204,6 +204,42 @@ document.documentElement.setAttribute('data-theme',t)})();
     .book .dllink{margin-left:0; display:block; width:max-content}
     .pods .src{white-space:normal}
     #theme-toggle{top:14px; right:14px; width:38px; height:38px}
+  }
+
+  /* ── 书籍信息表 ── */
+  .tablewrap{
+    overflow-x:auto; margin-top:8px; border:1px solid var(--line);
+    border-radius:4px; box-shadow:var(--shadow);
+    -webkit-overflow-scrolling:touch;
+  }
+  .booktable{
+    width:100%; border-collapse:collapse; background:var(--card);
+    font-size:14px; min-width:660px;
+  }
+  .booktable th,.booktable td{
+    text-align:left; padding:13px 16px; border-bottom:1px solid var(--line); vertical-align:top;
+  }
+  .booktable thead th{
+    background:var(--paper-deep); color:var(--ink-faint); font-weight:600;
+    font-size:12.5px; letter-spacing:.16em; white-space:nowrap;
+  }
+  .booktable tbody tr:last-child td{border-bottom:none}
+  .booktable tbody tr:hover{background:var(--why-bg)}
+  .booktable td.tt a{color:var(--ink); text-decoration:none; display:block; line-height:1.5}
+  .booktable td.tt b{font-weight:600; font-size:15px; letter-spacing:.02em}
+  .booktable td.tt span{display:block; color:var(--ink-faint); font-size:12.5px; margin-top:3px}
+  .booktable td.tt a:hover b{color:var(--vermilion)}
+  .booktable td.rec{color:var(--ink-soft); font-weight:500; min-width:230px; line-height:1.68}
+  .booktable td.wc{color:var(--ink-soft); white-space:nowrap; font-variant-numeric:tabular-nums}
+  .booktable td.dl{white-space:nowrap}
+  .booktable td.dl a{
+    color:var(--vermilion-deep); text-decoration:none; font-size:13px;
+    border:1px solid var(--score-line); padding:3px 13px; border-radius:999px; transition:background .2s;
+  }
+  .booktable td.dl a:hover{background:var(--score-bg)}
+  .booktable td.dl .pending{
+    color:var(--ink-faint); border:1px dashed var(--line);
+    padding:3px 13px; border-radius:999px; font-size:13px;
   }
 
   /* ── 附注 / 页脚 ── */
@@ -250,11 +286,11 @@ document.documentElement.setAttribute('data-theme',t)})();
     </div>
     <div class="stats">
       <div class="stat"><b>16</b><span>种图书</span></div>
-      <div class="stat"><b>180万</b><span>实测字数(13种)</span></div>
+      <div class="stat"><b>183万</b><span>实测字数(14种)</span></div>
       <div class="stat"><b>2016–26</b><span>出版跨度</span></div>
-      <div class="stat"><b>28</b><span>集配套播客</span></div>
+      <div class="stat"><b>31</b><span>集配套播客</span></div>
     </div>
-    <p class="hero-note">13 种全文已入库可检索 · Markdown 全文随仓库发布 · 书目信息经逐书网络核查（数据时点 2026-07）</p>
+    <p class="hero-note">14 种全文已入库可检索 · Markdown 全文随仓库发布 · 书目信息经逐书网络核查（数据时点 2026-07）</p>
   </div>
 </header>
 
@@ -263,7 +299,7 @@ document.documentElement.setAttribute('data-theme',t)})();
   <section class="intro">
     <p>这是一份为「适居行动」住房研究与新就业群体研究编选的书目。十六种书，几乎全都出自现场：它们或是快递员、女骑手、家政工、保洁员、出租车司机、皮村工友<em>亲笔写下的自述与诗</em>，或是作家、学者长期潜入东莞工厂、深圳三和、北京城乡接合部与乡村学校带回的<em>一线纪实与民族志</em>。</p>
     <p>上辑八种为当事人自述与纪实文学，下辑四种为调查与研究，补辑四种为近期新收——含两本刚刚问世的工人诗集。自述提供逐字的生活质感，研究提供概念与方法，诗歌提供情感的密度——三者互证，共同回答一个问题：在廉价而动荡的居住条件下，新就业群体如何谋生、如何栖居、如何维系尊严。</p>
-    <p>其中十三种的 Markdown 全文（含图片）已随仓库公开发布，每本书卡片的末尾均可直接下载；大部分书还配上了<em>小宇宙播客</em>的相关单集——作者访谈与读书专题，可在读前读后对照收听。</p>
+    <p>其中十四种的 Markdown 全文（含图片）已随仓库公开发布，每本书卡片的末尾均可直接下载；大部分书还配上了<em>小宇宙播客</em>的相关单集——作者访谈与读书专题，可在读前读后对照收听。</p>
   </section>
 
   <nav class="toc">
@@ -624,7 +660,7 @@ document.documentElement.setAttribute('data-theme',t)})();
       <span class="zh">补辑 · 新收录</span>
       <span class="en">New Additions · 4</span>
     </div>
-    <p class="part-desc">近期补充：《寂静的孩子》全文已入库可下载；其余三种暂未取得全文，先立条目，待收录后补链。</p>
+    <p class="part-desc">近期补充：《寂静的孩子》《低处飞行》全文已入库可下载；其余两种暂未取得全文，先立条目，待收录后补链。</p>
 
     <article class="book" id="b13">
       <span class="ordinal">拾叁</span>
@@ -641,6 +677,12 @@ document.documentElement.setAttribute('data-theme',t)})();
       <div class="why">
         <h4>为什么值得读 · 对研究的意义</h4>
         <p>新就业群体研究不能只看劳动者本人，还要看他们的孩子——「留守」与「随迁」两种处境，正是父母的流动就业与居住不稳定直接塑造的。本书把住房、学区、户籍三个议题的交叉点落到具体的孩子身上：城中村子弟学校、工棚里的童年、返乡就读的断层。对适居行动课题而言，它补上了「家庭与代际」维度——居住条件不仅影响劳动者的当下，也在写入下一代的起点；袁凌四年探访的方法与克制笔法，同样是课题质性写作的范本。</p>
+      </div>
+      <div class="pods">
+        <h4>相关播客 · 小宇宙</h4>
+        <ul>
+          <li><a href="https://www.xiaoyuzhoufm.com/episode/6602a3341519139e4fb346ef" target="_blank" rel="noopener">314 被剥夺的童年：袁凌谈留守儿童创伤、罪案与污名化</a><span class="src">忽左忽右 · 2024</span></li>
+        </ul>
       </div>
       <a class="dblink" href="https://book.douban.com/subject/33436178/" target="_blank" rel="noopener">豆瓣条目 ↗</a>
       <a class="dllink" href="https://github.com/hemayou/new-worker-literature/raw/main/全文/寂静的孩子（袁凌）.md" target="_blank" rel="noopener">↓ 下载 Markdown 全文</a>
@@ -672,7 +714,7 @@ document.documentElement.setAttribute('data-theme',t)})();
       <div class="meta">
         <span class="chip">作家出版社 · 2024年2月</span>
         <span class="chip">280页 · 139首</span>
-        <span class="chip todo">全文待收录</span>
+        <span class="chip">实测约2.7万字</span>
         <span class="chip score">豆瓣 7.4 · 188人评价</span>
         <span class="chip award">2026 鲁迅文学奖·诗歌奖</span>
       </div>
@@ -682,7 +724,14 @@ document.documentElement.setAttribute('data-theme',t)})();
         <h4>为什么值得读 · 对研究的意义</h4>
         <p>本书为专题补上诗歌这一文体：骑手的情感与象征世界，在非虚构与学术之外有另一种表达密度。值得注意的是它的生产方式——采访上百位同行、发放问卷，本身近乎一次「诗歌形式的田野调查」；鲁奖加冕意味着工人写作已进入主流文学体制视野，是研究新工人文化表征与自我书写绕不开的样本。</p>
       </div>
+      <div class="pods">
+        <h4>相关播客 · 小宇宙</h4>
+        <ul>
+          <li><a href="https://www.xiaoyuzhoufm.com/episode/68af438a97178f08eefe2ee3" target="_blank" rel="noopener">238 一个 57 岁外卖员的春天——与王计兵谈低处飞行、素人写作与城市骑士</a><span class="src">乱翻书 · 2025</span></li>
+        </ul>
+      </div>
       <a class="dblink" href="https://book.douban.com/subject/36745614/" target="_blank" rel="noopener">豆瓣条目 ↗</a>
+      <a class="dllink" href="https://github.com/hemayou/new-worker-literature/raw/main/全文/低处飞行（王计兵）.md" target="_blank" rel="noopener">↓ 下载 Markdown 全文</a>
     </article>
 
     <article class="book" id="b16">
@@ -701,15 +750,135 @@ document.documentElement.setAttribute('data-theme',t)})();
         <h4>为什么值得读 · 对研究的意义</h4>
         <p>与《我的皮村兄妹》直接互文——袁凌笔下「温榆河上的西西弗斯」一章写的就是小海，本书则是小海自己的声音：研究对象从「被书写者」变为「书写者」，这种对照本身就是新工人文学研究最生动的案例。「螺丝钉/西西弗斯」的劳动隐喻、工厂到城中村的迁徙轨迹，是分析新工人自我表征与精神状态的一手材料。</p>
       </div>
+      <div class="pods">
+        <h4>相关播客 · 小宇宙</h4>
+        <ul>
+          <li><a href="https://www.xiaoyuzhoufm.com/episode/6a4e0eca3ffb95687145399a" target="_blank" rel="noopener">打工诗人小海：穿过暴风骤雨去写诗</a><span class="src">跑题大会 · 2026</span></li>
+        </ul>
+      </div>
       <a class="dblink" href="https://book.douban.com/subject/38406987/" target="_blank" rel="noopener">豆瓣条目 ↗</a>
     </article>
+  </section>
+
+  <!-- ══════════ 书籍信息表 ══════════ -->
+  <section class="part" id="table">
+    <div class="part-head" style="margin-top:24px">
+      <span class="zh">书籍信息表 · 总览</span>
+      <span class="en">At a Glance · 16</span>
+    </div>
+    <p class="part-desc">一表纵览十六种书的推荐语、篇幅字数与全文下载入口；点书名可跳至该书卡片。</p>
+    <div class="tablewrap">
+      <table class="booktable">
+        <thead>
+          <tr><th>书名 · 作者</th><th>一句话推荐</th><th>字数</th><th>全文</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="tt"><a href="#b1"><b>我在北京送快递</b><span>胡安焉</span></a></td>
+            <td class="rec">现象级劳动者非虚构，“当事人写作”的标杆；快递员第一人称的居住与谋生日常。</td>
+            <td class="wc">约 11.4 万字</td>
+            <td class="dl"><a href="https://github.com/hemayou/new-worker-literature/raw/main/全文/我在北京送快递（胡安焉）.md" target="_blank" rel="noopener">下载</a></td>
+          </tr>
+          <tr>
+            <td class="tt"><a href="#b2"><b>劳动者的星辰</b><span>皮村文学小组</span></a></td>
+            <td class="rec">九位务工者亲笔合集，替沉默者发声；工棚与合租房里难得的“居住者主体性”。</td>
+            <td class="wc">约 7.2 万字</td>
+            <td class="dl"><a href="https://github.com/hemayou/new-worker-literature/raw/main/全文/劳动者的星辰（皮村文学小组）.md" target="_blank" rel="noopener">下载</a></td>
+          </tr>
+          <tr>
+            <td class="tt"><a href="#b3"><b>我的皮村兄妹</b><span>袁凌</span></a></td>
+            <td class="rec">七年潜入皮村，十三位工友的全景生命史；城中村自组织社区的一手民族志。</td>
+            <td class="wc">约 20.6 万字</td>
+            <td class="dl"><a href="https://github.com/hemayou/new-worker-literature/raw/main/全文/我的皮村兄妹（袁凌）.md" target="_blank" rel="noopener">下载</a></td>
+          </tr>
+          <tr>
+            <td class="tt"><a href="#b4"><b>跑外卖</b><span>王晚</span></a></td>
+            <td class="rec">最新女骑手自述，补足骑手研究的性别维度；算法世界与老家人情的双重穿梭。</td>
+            <td class="wc">约 9.8 万字</td>
+            <td class="dl"><a href="https://github.com/hemayou/new-worker-literature/raw/main/全文/跑外卖-一个女骑手的世界（王晚）.md" target="_blank" rel="noopener">下载</a></td>
+          </tr>
+          <tr>
+            <td class="tt"><a href="#b5"><b>无尘车间</b><span>塞壬</span></a></td>
+            <td class="rec">散文家隐身东莞工厂八十天；日结工棚与厂宿舍，写的是新就业群体的“上游”。</td>
+            <td class="wc">约 8.3 万字</td>
+            <td class="dl"><a href="https://github.com/hemayou/new-worker-literature/raw/main/全文/无尘车间（塞壬）.md" target="_blank" rel="noopener">下载</a></td>
+          </tr>
+          <tr>
+            <td class="tt"><a href="#b6"><b>我的母亲做保洁</b><span>张小满</span></a></td>
+            <td class="rec">女儿记录母亲九百天保洁生涯，让隐形维护者显形；中老年女工的代际与家庭视角。</td>
+            <td class="wc">约 12.4 万字</td>
+            <td class="dl"><a href="https://github.com/hemayou/new-worker-literature/raw/main/全文/我的母亲做保洁（张小满）.md" target="_blank" rel="noopener">下载</a></td>
+          </tr>
+          <tr>
+            <td class="tt"><a href="#b7"><b>生死课</b><span>袁凌</span></a></td>
+            <td class="rec">边缘人群生与死的短篇纪实合集；每种处境背后的“最后的居所”，提示居住即生死安顿。</td>
+            <td class="wc">约 19.2 万字</td>
+            <td class="dl"><a href="https://github.com/hemayou/new-worker-literature/raw/main/全文/生死课（袁凌）.md" target="_blank" rel="noopener">下载</a></td>
+          </tr>
+          <tr>
+            <td class="tt"><a href="#b8"><b>我在上海开出租</b><span>黑桃</span></a></td>
+            <td class="rec">稀缺的出租车司机自述，“出租车版《深夜食堂》”；车厢作为移动的“第二居所”。</td>
+            <td class="wc">约 9.9 万字</td>
+            <td class="dl"><a href="https://github.com/hemayou/new-worker-literature/raw/main/全文/我在上海开出租（黑桃）.md" target="_blank" rel="noopener">下载</a></td>
+          </tr>
+          <tr>
+            <td class="tt"><a href="#b9"><b>岂不怀归</b><span>田丰、林凯玄</span></a></td>
+            <td class="rec">首部“三和大神”纪实调查；十五元床位与“挂逼房”，极端居住形态的完整标本。</td>
+            <td class="wc">约 14.6 万字</td>
+            <td class="dl"><a href="https://github.com/hemayou/new-worker-literature/raw/main/全文/岂不怀归-三和青年调查（田丰、林凯玄）.md" target="_blank" rel="noopener">下载</a></td>
+          </tr>
+          <tr>
+            <td class="tt"><a href="#b10"><b>中国新工人：女工传记</b><span>吕途</span></a></td>
+            <td class="rec">三十四位女工口述史横跨六十年；宿舍劳动体制与女工居住变迁的长时段证据。</td>
+            <td class="wc">约 18.7 万字</td>
+            <td class="dl"><a href="https://github.com/hemayou/new-worker-literature/raw/main/全文/中国新工人-女工传记（吕途）.md" target="_blank" rel="noopener">下载</a></td>
+          </tr>
+          <tr>
+            <td class="tt"><a href="#b11"><b>过渡劳动</b><span>孙萍</span></a></td>
+            <td class="rec">本专题的学术主心骨；“过渡劳动”概念同样照亮暂住、合租、搬迁的“过渡性居住”。</td>
+            <td class="wc">约 18.9 万字</td>
+            <td class="dl"><a href="https://github.com/hemayou/new-worker-literature/raw/main/全文/过渡劳动-平台经济下的外卖骑手（孙萍）.md" target="_blank" rel="noopener">下载</a></td>
+          </tr>
+          <tr>
+            <td class="tt"><a href="#b12"><b>废品生活</b><span>胡嘉明、张劼颖</span></a></td>
+            <td class="rec">城乡接合部拾荒者民族志；“组装家庭”与非正式经济、非正式居住的共生关系。</td>
+            <td class="wc">约 8 万字</td>
+            <td class="dl"><a href="https://github.com/hemayou/new-worker-literature/raw/main/全文/废品生活-垃圾场的经济、社群与空间（胡嘉明、张劼颖）.md" target="_blank" rel="noopener">下载</a></td>
+          </tr>
+          <tr>
+            <td class="tt"><a href="#b13"><b>寂静的孩子</b><span>袁凌</span></a></td>
+            <td class="rec">四年走访中国城乡儿童的困境；把住房、学区、户籍落到留守与随迁的孩子身上。</td>
+            <td class="wc">约 21.3 万字</td>
+            <td class="dl"><a href="https://github.com/hemayou/new-worker-literature/raw/main/全文/寂静的孩子（袁凌）.md" target="_blank" rel="noopener">下载</a></td>
+          </tr>
+          <tr>
+            <td class="tt"><a href="#b14"><b>我在北京做家政</b><span>李文丽</span></a></td>
+            <td class="rec">皮村家政工的个人专著，谱系最新一部；住家工“在他人屋檐下”的特殊居住形态。</td>
+            <td class="wc">278 页</td>
+            <td class="dl"><span class="pending">待收录</span></td>
+          </tr>
+          <tr>
+            <td class="tt"><a href="#b15"><b>低处飞行</b><span>王计兵</span></a></td>
+            <td class="rec">外卖诗人第三本诗集，2026 鲁奖诗歌奖；采访上百同行写成，近乎一次“诗歌形式的田野调查”。</td>
+            <td class="wc">约 2.7 万字</td>
+            <td class="dl"><a href="https://github.com/hemayou/new-worker-literature/raw/main/全文/低处飞行（王计兵）.md" target="_blank" rel="noopener">下载</a></td>
+          </tr>
+          <tr>
+            <td class="tt"><a href="#b16"><b>温榆河上的西西弗斯</b><span>小海</span></a></td>
+            <td class="rec">皮村诗人自己的声音，与《我的皮村兄妹》互文；研究对象从“被书写者”变为“书写者”。</td>
+            <td class="wc">202 页</td>
+            <td class="dl"><span class="pending">待收录</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
   <footer>
     <h2>数据说明</h2>
     <ul>
-      <li>13 种图书的 Markdown 全文与图片资产收录于仓库 <b>全文/</b> 目录；Markdown 内图片为相对路径引用，下载后请与同名 .assets 目录放在一起，或直接在仓库中在线阅读。补辑 3 种（做家政 / 低处飞行 / 温榆河）暂未取得全文，先立条目。</li>
-      <li>播客链接均来自小宇宙（xiaoyuzhoufm.com），逐集抓取验证（2026-07）。《无尘车间》《中国新工人：女工传记》《废品生活》暂未检索到符合收录标准（作者访谈或本书专题）的单集。</li>
+      <li>14 种图书的 Markdown 全文与图片资产收录于仓库 <b>全文/</b> 目录；Markdown 内图片为相对路径引用，下载后请与同名 .assets 目录放在一起，或直接在仓库中在线阅读。补辑 2 种（做家政 / 温榆河）暂未取得全文，先立条目。</li>
+      <li>播客链接均来自小宇宙（xiaoyuzhoufm.com），逐集抓取验证（2026-07）。《无尘车间》《中国新工人：女工传记》《废品生活》《我在北京做家政》暂未检索到符合收录标准（作者访谈或本书专题）的单集。</li>
       <li>出版社、出版年月、页数、豆瓣评分经豆瓣、出版社官网、媒体报道逐书核查，时点 2026-07；豆瓣评分与人数会随时间变动。</li>
       <li>字数为课题书库本地全文入库后的实测字符数（去除标记与空白），与出版方标称字数可能存在口径差异。</li>
       <li>《低处飞行》获 2026 年鲁迅文学奖诗歌奖（2026-07 揭晓）；《温榆河上的西西弗斯》为 2026 年 5 月新书——均为最新动态，以当日主流媒体报道为准。</li>
